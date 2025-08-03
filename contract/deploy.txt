@@ -1,0 +1,40 @@
+ contract  npm run deploy
+
+> starkip@1.0.0 deploy
+> node deploy.js
+
+[dotenv@17.2.1] injecting env (10) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+🚀 Starting Starknet deployment process...
+
+✅ Environment validation passed
+📂 Loading contract artifacts...
+✅ Contract artifacts loaded successfully
+🌐 Connecting to Starknet sepolia...
+📡 RPC URL: https://starknet-sepolia.public.blastapi.io/rpc/v0_8
+✅ Successfully connected to Starknet
+👤 Setting up deployer account: 0x02f3D6D289eEc48ED4848972AbF6F911BF6836658B6e419319c2E7dd09db5F36
+⚠️  Could not fetch account balance: account.getBalance is not a function
+🔍 Computed class hash: 0x36ac543f49f6e0f036b0349166857c8c2fe4a223038a06e08fa2b42194d0308
+📝 Declaring contract class...
+⏳ Declaration transaction submitted: 0x2db4ce557d6bca802e268f2b26a99ec91b354c71cbb211e26f52e1babe13ab2
+⏳ Waiting for transaction confirmation...
+✅ Contract declared successfully
+🚀 Deploying contract instance...
+⏳ Deployment transaction submitted: 0x28b3b280702b7b7bd297d52fe7759c94451430b6b9b169b6adc617568dcdef1
+⏳ Waiting for transaction confirmation...
+✅ Contract deployed successfully
+📄 Deployment info saved to ./deployments.json
+
+🎉 Deployment completed successfully!
+════════════════════════════════════════════════════════════
+📄 Contract Name: StarkipTipping
+🏠 Contract Address: 0x72f255a03b0b471ad28667fe5e9b469a8b952455ba1d58086ab385012df6c80
+🔍 Class Hash: 0x36ac543f49f6e0f036b0349166857c8c2fe4a223038a06e08fa2b42194d0308
+🌐 Network: sepolia
+🔗 Explorer: https://sepolia.starkscan.co/contract/0x72f255a03b0b471ad28667fe5e9b469a8b952455ba1d58086ab385012df6c80
+════════════════════════════════════════════════════════════
+
+💡 Next steps:
+1. Add CONTRACT_ADDRESS=0x72f255a03b0b471ad28667fe5e9b469a8b952455ba1d58086ab385012df6c80 to your .env file
+2. Run "npm run interact" to test contract interactions
+3. Visit the explorer link above to view your contract
