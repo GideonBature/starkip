@@ -1,0 +1,13 @@
+{
+  "sepolia": {
+    "StarkipTipping": {
+      "network": "sepolia",
+      "timestamp": "2025-08-02T17:49:58.433Z",
+      "contractName": "StarkipTipping",
+      "classHash": "0x36ac543f49f6e0f036b0349166857c8c2fe4a223038a06e08fa2b42194d0308",
+      "contractAddress": "0x72f255a03b0b471ad28667fe5e9b469a8b952455ba1d58086ab385012df6c80",
+      "deploymentTransaction": "0x28b3b280702b7b7bd297d52fe7759c94451430b6b9b169b6adc617568dcdef1",
+      "explorerUrl": "https://sepolia.starkscan.co/contract/0x72f255a03b0b471ad28667fe5e9b469a8b952455ba1d58086ab385012df6c80"
+    }
+  }
+}
