@@ -13,6 +13,8 @@ const HomePage: React.FC = () => {
   const [userCreatorId, setUserCreatorId] = useState<number | null>(null);
   const [isCheckingRegistration, setIsCheckingRegistration] = useState(false);
   const [targetCreatorId, setTargetCreatorId] = useState<number | undefined>(undefined);
+  const [tipTargetError, setTipTargetError] = useState<string | null>(null);
+  const [tipTargetLoading, setTipTargetLoading] = useState(false);
   const { address, isConnected } = useWallet();
 
   const loadStats = async () => {
@@ -47,27 +49,35 @@ const HomePage: React.FC = () => {
   // Effect to resolve creator address to ID when URL has an address
   useEffect(() => {
     const resolveCreatorAddress = async () => {
-      if (creatorAddress) {
-        try {
-          if (creatorAddress.startsWith('0x')) {
-            // It's a wallet address, get the creator ID
-            const id = await starkipContract.getCreatorId(creatorAddress);
-            if (id > 0) {
-              setTargetCreatorId(id);
-            }
+      setTipTargetError(null);
+      setTipTargetLoading(false);
+      setTargetCreatorId(undefined);
+      if (!creatorAddress) return;
+      setTipTargetLoading(true);
+      try {
+        if (creatorAddress.startsWith('0x')) {
+          // It's a wallet address, get the creator ID
+          const id = await starkipContract.getCreatorId(creatorAddress);
+          if (id > 0) {
+            setTargetCreatorId(id);
           } else {
-            // It's a numeric ID
-            const id = parseInt(creatorAddress);
-            if (!isNaN(id) && id > 0) {
-              setTargetCreatorId(id);
-            }
+            setTipTargetError('No creator registered for this address.');
           }
-        } catch (error) {
-          console.error('Error resolving creator address:', error);
+        } else {
+          // It's a numeric ID
+          const id = parseInt(creatorAddress);
+          if (!isNaN(id) && id > 0) {
+            setTargetCreatorId(id);
+          } else {
+            setTipTargetError('Invalid creator ID or address.');
+          }
         }
+      } catch (error) {
+        setTipTargetError('No creator registered for this address.');
+      } finally {
+        setTipTargetLoading(false);
       }
     };
-
     resolveCreatorAddress();
   }, [creatorAddress]);
 
@@ -162,7 +172,13 @@ const HomePage: React.FC = () => {
         {/* Right Column - Tip Creator */}
         <div>
           <ErrorBoundary>
-            <TipCreator creatorId={targetCreatorId} />
+            {tipTargetLoading ? (
+              <div className="text-center text-gray-500 py-8">Loading creator info...</div>
+            ) : tipTargetError ? (
+              <div className="text-center text-red-500 py-8">{tipTargetError}</div>
+            ) : (
+              <TipCreator creatorId={targetCreatorId} />
+            )}
           </ErrorBoundary>
         </div>
       </div>
