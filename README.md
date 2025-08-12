@@ -8,19 +8,19 @@ This project provides a **seamless**, **secure**, and **transparent** way for cr
 
 ## 🚀 Features
 
-- **Dynamic Tipping Link**  
+- **Dynamic Tipping Link**
   Creators receive a unique, shareable link that automatically pre-populates their Starknet address in the tipping form.
 
-- **Direct Wallet-to-Contract Interaction**  
+- **Direct Wallet-to-Contract Interaction**
   Tippers can connect their Starknet wallet and send a custom tip amount directly to the smart contract.
 
-- **On-chain Transparency**  
+- **On-chain Transparency**
   All tips are transactions on the Starknet blockchain, ensuring a verifiable and transparent record of all financial support.
 
-- **Creator Dashboard**  
+- **Creator Dashboard**
   A simple interface for creators to connect their wallet and generate their personalized tipping link.
 
-- **No Traditional Backend**  
+- **No Traditional Backend**
   The core functionality of the dApp is handled by the Starknet smart contract, eliminating the need for a centralized server.
 
 ---
@@ -54,24 +54,20 @@ Before running the project, make sure you have:
 Clone the repository:
 
 ```bash
-git clone [your_repo_url]
-cd [your_repo_name]
+git clone https://github.com/GideonBature/starkip.git
+cd starkip
 ````
 
 Install dependencies:
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the running dApp.
@@ -115,23 +111,42 @@ The frontend handles all interactions with the contract and displays a clean, si
 
 ---
 
-## 💡 How to Use
 
-### For Creators:
 
-1. Go to the **Creator Dashboard** and connect your Starknet wallet.
-2. A unique tipping link is generated for you.
-3. Share this link on your social media or website.
-4. Tips go directly to your wallet.
 
-### For Tippers:
 
-1. Click a creator's tipping link.
-2. The dApp loads with the creator's address pre-filled.
-3. Connect your Starknet wallet.
-4. Enter a tip amount and confirm the transaction.
+## 💡 How to Use the Application
 
-Done! Your tip is on its way. 💸
+> **Note:**
+> - Starkip is currently deployed only on the Starknet Sepolia (testnet) network. Please ensure your wallet (ArgentX or Braavos) is connected to Sepolia. Mainnet deployment is not yet available for general use.
+> - The public is free to use Starkip as they wish for testing and experimentation.
+> - You will need both Sepolia ETH (to send tips) and Sepolia STRK (for gas fees) in your wallet to use all features.
+> - If you encounter any errors or have suggestions for improvement, please [open an issue on the project GitHub](https://github.com/starkip/issues).
+
+Starkip is designed to be simple for both creators and tippers. Here’s how it works for each:
+
+### For Creators
+
+1. Visit the application: https://starkip-fhqj.vercel.app/
+2. Connect your Starknet wallet (ArgentX or Braavos).
+3. Register as a creator. Once registered, your dashboard will display two unique tipping links:
+  - One with your wallet address (e.g., `/tip/0x...`)
+  - One with your creator ID (e.g., `/tip/1`)
+  Both links work for receiving tips.
+4. Share your tipping link anywhere—on social media, your website, or any channel where your supporters can find it.
+5. Tips go directly to your wallet, and you can track your stats on the dashboard.
+
+### For Tippers
+
+1. Click a creator’s tipping link. The page will load showing the creator’s name, their ID, and their wallet address (with only the first 4 and last 4 digits visible for privacy).
+2. Connect your Starknet wallet if you haven’t already.
+3. Enter the amount you wish to tip (currently in ETH).
+4. Click “Send Tip” to send your support. You can also choose to record the tip onchain for analytics and transparency (this will require a small extra gas fee in addition to the normal transaction fee).
+5. Confirm the transaction in your wallet. That’s it—the creator receives your support directly, and you can be sure it’s on-chain and transparent!
+
+**Summary:**
+- Creators: Register, get your link, and share it. Tips go straight to your wallet.
+- Tippers: Click a link, connect your wallet, enter an amount, and tip—optionally recording the tip onchain for extra transparency.
 
 ---
 
@@ -139,9 +154,9 @@ Done! Your tip is on its way. 💸
 
 For questions or issues, feel free to:
 
-* [Open an issue](https://github.com/your-repo/issues)
+* [Open an issue](https://github.com/starkip/issues)
 * Reach out to the project maintainers.
 
 ---
 
-> **Built with love for creators and crypto by the community.**
+> **Built with love for creators and users in general in the Starknet community.**
