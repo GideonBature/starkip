@@ -1,0 +1,26 @@
+{
+  "name": "starkip",
+  "version": "1.0.0",
+  "description": "Deployment script for Starkip Tipping Contract",
+  "type": "module",
+  "main": "deploy.js",
+  "scripts": {
+    "deploy": "node deploy.js",
+    "deploy:testnet": "STARKNET_NETWORK=testnet node deploy.js",
+    "deploy:mainnet": "STARKNET_NETWORK=mainnet node deploy.js",
+    "deploy:demo": "DEMO_USAGE=true node deploy.js",
+    "build": "scarb build",
+    "test": "scarb test",
+    "deploy:full": "npm run build && npm run deploy"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "starknet": "^7.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

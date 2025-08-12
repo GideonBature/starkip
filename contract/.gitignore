@@ -1,2 +1,5 @@
+package-lock.json
+.env
 target
 .snfoundry_cache/
+.mainnet_deployment_error.txt
