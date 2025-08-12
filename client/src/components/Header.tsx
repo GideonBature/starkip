@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wallet, LogOut } from 'lucide-react';
 import { useWallet } from '../context/WalletContext';
+import starknetLogo from '../assets/starknet-logo.svg';
 
 const Header: React.FC = () => {
   const { isConnected, address, connectWallet, disconnectWallet, isConnecting } = useWallet();
@@ -14,12 +15,15 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-gray-900">
-              Starkip
-            </h1>
-            <span className="ml-2 text-sm text-gray-500">
-              Tip creators on Starknet
-            </span>
+            <img
+              src={starknetLogo}
+              alt="Starknet logo"
+              className="h-8 w-8 mr-2"
+            />
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 leading-tight">Starkip</h1>
+              <span className="text-xs text-gray-500">Tip creators on Starknet</span>
+            </div>
           </div>
 
           <div className="flex items-center space-x-4">
